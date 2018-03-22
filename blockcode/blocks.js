@@ -1,4 +1,4 @@
-/* File:			Blocks.js		
+/* File:			blocks.js		
    Author:			Roshan Ramankutty
    Description:		This is the abstract representation of the block-based language
 */

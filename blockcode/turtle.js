@@ -5,7 +5,7 @@
  */
 (function(){
 	'use strict';
-	var PIXEL_RATIO = window.devicePixelRation || 1;
+	var PIXEL_RATIO = window.devicePixelRatio || 1;
 	var canvasPlaceholder = document.querySelector('.canvas-placeholder');
 	var canvas = document.querySelector('.canvas');
 	var script = document.querySelector('.script');
@@ -52,7 +52,7 @@
 
 	/**
 	 * @func drawTurtle
-	 * function to draw turtle drawing
+	 * function to draw turtle pen drawing
 	 */
 	var drawTurtle = function() {
 		var userPen = pen; //save pen state

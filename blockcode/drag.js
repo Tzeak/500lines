@@ -10,6 +10,7 @@
 	var dragTarget = null; //Block we're dragging
 	var dragType = null; // are we dragging from the menu or from the script?
 	var scriptBlocks = []; // Blocks in the script, sorted by position
+	var nextBlock = null;
 
 	/**
 	 * @func dragStart
@@ -36,7 +37,13 @@
 			evt.dataTransfer.effectAllowed = 'move';
 		}
 	}
-	//TODO: explain findPosition()
+
+	/**
+	 * @func findPosition 
+	 * While not expressly necessary, this uses the location of the full block to make the experience 
+	 * of dropping off a block much easier
+	 * @params evt - the drag event, altered by reference to more easily identify the block location
+	 */
 	function findPosition(evt){
 		var prevBlock = nextBlock;
 		nextBlock = null;
@@ -57,7 +64,6 @@
 		}
 	}
 
-	//TODO: explain dragEnter()
 	function dragEnter(evt){
 		if (matches(evt.target, '.menu, .script, .content')){
 			evt.target.classList.add('over');
@@ -103,6 +109,7 @@
 		if(!matches(evt.target, '.menu, .menu *, .script, .script *')) return;
 		var dropTarget = closest(
 				evt.target, '.script .container, .script .block, .menu, .script');
+		findPosition(evt);
 		var dropType = 'script';
 		if (matches(dropTarget, '.menu')) { dropType = 'menu'; }
 		// stops the browser from redirecting.

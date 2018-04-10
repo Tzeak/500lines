@@ -57,9 +57,9 @@
 
 	/**
 	 * @func blockUnit
-	 * honestly not sure what this does
+	 * Preserves the units for serialization (i.e degrees, steps)
 	 * @params block - handles a block div
-	 * @return the last child text content from index 1? what?
+	 * @return the units in text (i.e degrees, steps)
 	 */
 
 	var blockUnits = function(block) {
@@ -67,6 +67,7 @@
 				block.lastChild.nodeType === Node.TEXT_NODE &&
 				block.lastChild.textContent) {
 
+			console.log(block.lastChild.textContent.slice(1));
 			return block.lastChild.textContent.slice(1);
 		}
 	}
